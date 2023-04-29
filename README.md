@@ -1,4 +1,4 @@
-# REST API for Online Cab Booking Application
+# REST API for Cab Booking System
 
 Our team has developed a REST API for an online cab booking application. This API enables customers to log in, modify their profile details, and book rides. Likewise, drivers can log in, update their information and vehicle details, and accept ride requests. An admin account is also available to oversee the entire process, including updating information and accessing the application's data. To ensure data and user security, we have implemented rigorous validation procedures at every stage for all users.
 
@@ -7,10 +7,8 @@ Our team has developed a REST API for an online cab booking application. This AP
 
 - Java
 - Hibernate
-- Spring Framework
 - Spring Boot
-- Spring Data JPA
-- MySQL
+- JDBC MySQL driver
 - Swagger UI
 - Maven
 
@@ -26,12 +24,10 @@ Our team has developed a REST API for an online cab booking application. This AP
 - Admin can access all the information of customer, cab driver and cab.
 - Admin can access all Trip Details along with specific trip details using a particular cab or a customer.
 
-
 ## Customer Features
 - Customer can login in the application and update their information using their username and password.
 - Customer can book trips using pickup location and destination.
 - Customer can access the bill after the trip is completed.
-
 
 ## Cab Driver features
 - Cab Driver can login in the application and update their information using their username and password.
@@ -39,20 +35,9 @@ Our team has developed a REST API for an online cab booking application. This AP
 - Cab Driver can mark their availability according to the trips status.
 - Cab Driver can end the trip and application generates a bill for the trip.
 
-# API Root Endpoint
-```
-https://localhost:8888/
-```
-```
-http://localhost:8888/swagger-ui/
-```
 # API Reference
 
 ## Customer Requests
-
-```http
-  Customer Controller
-```
 
 | Request | METHOD     |  URI | Description                |
 | :-------- | :------- | :----- | :------------------------- |
@@ -67,10 +52,6 @@ http://localhost:8888/swagger-ui/
 
 ## Cab Driver Requests
 
-```http
-  Cab Driver Controller 
-```
-
 | Request | METHOD     |  URI | Description                |
 | :-------- | :------- | :----- | :------------------------- |
 | `POST` | `Create` | `http://localhost:8888/cabdriver/create` | Create Cab Driver |
@@ -81,10 +62,6 @@ http://localhost:8888/swagger-ui/
 
 ## Admin Requests
 
-```http
-  Admin Controller
-```
-
 | Request | METHOD     |  URI | Description                |
 | :-------- | :------- | :----- | :------------------------- |
 | `POST` | `Create` | `http://localhost:8888/admin/create` | Create Admin |
@@ -93,36 +70,3 @@ http://localhost:8888/swagger-ui/
 | `POST` | `Get All Trip` | `http://localhost:8888/admin/getalltrips` | Show All Trip |
 | `DELETE` | `Get Trip By Cab` | `http://localhost:8888/admin/getalltripsbycab/{cabId}` | Get All Trip By Cab ID |
 | `POST` | `Get Trip By Customer` | `http://localhost:8888/admin/triplist` | Get All Trip By Customer |
-
-
-# Sample API Response for Customer Account Creation
-### Request Type
-```
-POST
-```
-
-### Request URI
-```
-http://localhost:8888/customer/create
-```
-
-### Request Body
-```
-{
-    "username":"pablo",
-    "password":"escobar",
-    "mobile":"9874568721"
-}
-```
-### Response Body
-
-```
-{
-  "adminId": 1,
-  "username": "pablo",
-  "password": "escobar",
-  "address": null,
-  "mobile": "9874568721",
-  "email": null
-}
-```
